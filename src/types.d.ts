@@ -345,7 +345,53 @@ declare class LinearGradient {
 
 // todo module
 
-// todo Notification
+declare class Notification {
+	/**
+	 * @deprecated
+	 */
+	static current(): Notification;
+	static allPending(): Promise<Array<Notification>>;
+	static allDelivered(): Promise<Array<Notification>>;
+	static removeAllPending(): Promise<Array<Notification>>;
+	static removeAllDelivered(): Promise<Array<Notification>>;
+	static removePending(identifiers: Array<string>): Promise<void>;
+	static removeDelivered(identifiers: Array<string>): Promise<void>;
+	static resetCurrent(): void;
+
+	identifier: string;
+	title: string;
+	subtitle: string;
+	body: string;
+	preferredContentHeight: number;
+	badge: number;
+	threadIdentifier: string;
+	userInfo: { [k: string]: unknown };
+	sound:
+		| "default"
+		| "accept"
+		| "alert"
+		| "complete"
+		| "event"
+		| "failure"
+		| "piano_error"
+		| "piano_success"
+		| "popup"
+		| null;
+	openURL: string;
+	readonly deliveryDate: Date | null;
+	nextTriggerDate: Date;
+	scriptName: string;
+	actions: { [k: string]: string };
+
+	constructor();
+
+	schedule(): Promise<void>;
+	remove(): Promise<void>;
+	setTriggerDate(date: Date): void;
+	setDailyTrigger(hour: number, minute: number, repeats: boolean): void;
+	setWeeklyTrigger(weekday: number, hour: number, minute: number, repeats: boolean): void;
+	addAction(title: string, url: string, destructive: boolean): void;
+}
 
 // todo Pasteboard
 
@@ -428,6 +474,29 @@ declare class TextField {
 // todo WebView
 
 // todo WidgetDate
+declare class WidgetDate {
+	date: Date;
+	textColor: Color;
+	font: Font;
+	textOpacity: number;
+	lineLimit: number;
+	minimumScaleFactor: number;
+	shadowColor: Color;
+	shadowRadius: number;
+	shadowOffset: Point;
+	url: string;
+
+	private constructor();
+
+	leftAlignText(): void;
+	centerAlignText(): void;
+	rightAlignText(): void;
+	applyTimeStyle(): void;
+	applyDateStyle(): void;
+	applyRelativeStyle(): void;
+	applyOffsetStyle(): void;
+	applyTimerStyle(): void;
+}
 
 declare class WidgetImage {
 	image: Image;
