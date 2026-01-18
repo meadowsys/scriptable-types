@@ -335,7 +335,32 @@ declare class LinearGradient {
 	constructor();
 }
 
-// todo ListWidget
+declare class ListWidget {
+	backgroundColor: Color;
+	backgroundImage: Image;
+	backgroundGradient: LinearGradient;
+	addAccessoryWidgetBackground: boolean;
+	spacing: number;
+	url: string;
+	refreshAfterDate: Date;
+
+	constructor();
+
+	addText(text: string): WidgetText;
+	addDate(date: Date): WidgetDate;
+	addImage(image: Image): WidgetImage;
+	addSpacer(length: number): WidgetSpacer;
+	addStack(): WidgetStack;
+	setPadding(top: number, leading: number, bottom: number, trailing: number): void;
+	useDefaultPadding(): void;
+	presentSmall(): Promise<void>;
+	presentMedium(): Promise<void>;
+	presentLarge(): Promise<void>;
+	presentExtraLarge(): Promise<void>;
+	presentAccessoryInline(): Promise<void>;
+	presentAccessoryCircular(): Promise<void>;
+	presentAccessoryRectangular(): Promise<void>;
+}
 
 // todo Location
 
@@ -416,7 +441,35 @@ declare class Point {
 
 // todo Reminder
 
-// todo Request
+declare class Request {
+	url: string;
+	method: string;
+	headers: { [k: string]: string };
+	body: unknown;
+	timeoutInterval: number;
+	onRedirect: (req: Request) => Request;
+	readonly response: {
+		url: string;
+		statusCode: number;
+		mimeType: string;
+		textEncodingName: string;
+		headers: { [k: string]: string };
+		// todo cookie type
+		cookies: Array<unknown>;
+	};
+	allowInsecureRequest: boolean;
+
+	constructor(url: string);
+
+	load(): Promise<Data>;
+	loadString(): Promise<string>;
+	loadJSON(): Promise<unknown>;
+	loadImage(): Promise<Image>;
+	addParameterToMultipart(name: string, value: string): void;
+	addFileDataToMultipart(data: Data, mimeType: string, name: string, filename: string): void;
+	addFileToMultipart(filePath: string, name: string, filename: string): void;
+	addImageToMultipart(image: Image, name: string, filename: string): void;
+}
 
 // todo Safari
 
