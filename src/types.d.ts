@@ -182,7 +182,32 @@ declare class Calendar {
 
 // todo CallbackURL
 
-// todo Color
+declare class Color {
+	static black(): Color;
+	static darkGray(): Color;
+	static lightGray(): Color;
+	static white(): Color;
+	static gray(): Color;
+	static red(): Color;
+	static green(): Color;
+	static blue(): Color;
+	static cyan(): Color;
+	static yellow(): Color;
+	static magenta(): Color;
+	static orange(): Color;
+	static purple(): Color;
+	static brown(): Color;
+	static clear(): Color;
+	static dynamic(lightColor: Color, darkColor: Color): Color;
+
+	readonly hex: string;
+	readonly red: number;
+	readonly green: number;
+	readonly blue: number;
+	readonly alpha: number;
+
+	constructor(hex: string, alpha: number);
+}
 
 declare const config: Config;
 declare type Config = {
@@ -278,7 +303,12 @@ declare type Config = {
 
 // todo ShareSheet
 
-// todo Size
+declare class Size {
+	width: number;
+	height: number;
+
+	constructor(width: number, height: number);
+}
 
 // todo Speech
 
