@@ -326,7 +326,14 @@ declare class Image {
 
 // todo Keychain
 
-// todo LinearGradient
+declare class LinearGradient {
+	colors: Array<Color>;
+	locations: Array<number>;
+	startPoint: Point;
+	endPoint: Point;
+
+	constructor();
+}
 
 // todo ListWidget
 
@@ -346,7 +353,12 @@ declare class Image {
 
 // todo Photos
 
-// todo Point
+declare class Point {
+	x: number;
+	y: number;
+
+	constructor(x: number, y: number);
+}
 
 // todo QuickLook
 
