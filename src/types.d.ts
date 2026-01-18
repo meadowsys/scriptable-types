@@ -50,6 +50,9 @@ declare class Calendar {
 	readonly allowsContentModifications: boolean;
 	color: Color;
 
+	// todo ??
+	private constructor();
+
 	supportsAvailability(availability: string): boolean;
 	save();
 	remove();
@@ -69,7 +72,27 @@ declare class Calendar {
 // todo CalendarEvent
 // todo CallbackURL
 // todo Color
-// todo config
+
+declare const config: Config;
+declare type Config = {
+	readonly runsInApp: boolean;
+	readonly runsInActionExtension: boolean;
+	readonly runsWithSiri: boolean;
+	readonly runsInWidget: boolean;
+	readonly runsInAccessoryWidget: boolean;
+	readonly runsInNotification: boolean;
+	readonly runsFromHomeScreen: boolean;
+	readonly widgetFamily:
+		| "small"
+		| "medium"
+		| "large"
+		| "extraLarge"
+		| "accessoryRectangular"
+		| "accessoryInline"
+		| "accessoryCircular"
+		| null;
+};
+
 // todo console
 // todo Contact
 // todo ContactsContainer
