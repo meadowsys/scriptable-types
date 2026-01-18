@@ -3,6 +3,9 @@
 	"version": "0.1.0",
 	"license": "MIT",
 	"types": "src/types.d.ts",
+	"files": [
+		"src"
+	],
 	"devDependencies": {
 		"typescript": "^5.9.3"
 	}
