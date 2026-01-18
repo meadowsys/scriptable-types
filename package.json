@@ -1,5 +1,5 @@
 {
-	"name": "scriptable-types",
+	"name": "scriptable-typings",
 	"version": "0.1.0",
 	"license": "MIT",
 	"types": "src/types.d.ts",
