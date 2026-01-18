@@ -152,6 +152,18 @@ declare type Args = {
 };
 
 declare class Calendar {
+	static forReminders(): Promise<Array<Calendar>>;
+	static forEvents(): Promise<Array<Calendar>>;
+	static forRemindersByTitle(title: string): Promise<Calendar>;
+	static forEventsByTitle(title: string): Promise<Calendar>;
+	static createForReminders(title: string): Promise<Calendar>;
+	static findOrCreateForReminders(title: string): Promise<Calendar>;
+	static defaultForReminders(): Promise<Calendar>;
+	static defaultForEvents(): Promise<Calendar>;
+	// todo i'm guessing these, need to test
+	static presentPicker(allowMultiple: true): Promise<Array<Calendar>>;
+	static presentPicker(allowMultiple: false): Promise<[Calendar?]>;
+
 	readonly identifier: string;
 	title: string;
 	readonly isSubscribed: boolean;
@@ -164,21 +176,12 @@ declare class Calendar {
 	supportsAvailability(availability: string): boolean;
 	save();
 	remove();
-	static forReminders(): Promise<Array<Calendar>>;
-	static forEvents(): Promise<Array<Calendar>>;
-	static forRemindersByTitle(title: string): Promise<Calendar>;
-	static forEventsByTitle(title: string): Promise<Calendar>;
-	static createForReminders(title: string): Promise<Calendar>;
-	static findOrCreateForReminders(title: string): Promise<Calendar>;
-	static defaultForReminders(): Promise<Calendar>;
-	static defaultForEvents(): Promise<Calendar>;
-	// todo i'm guessing these, need to test
-	static presentPicker(allowMultiple: true): Promise<Array<Calendar>>;
-	static presentPicker(allowMultiple: false): Promise<[Calendar?]>;
 };
 
 // todo CalendarEvent
+
 // todo CallbackURL
+
 // todo Color
 
 declare const config: Config;
@@ -202,55 +205,168 @@ declare type Config = {
 };
 
 // todo console
+
 // todo Contact
+
 // todo ContactsContainer
+
 // todo ContactsGroup
+
 // todo Data
+
 // todo DateFormatter
+
 // todo DatePicker
+
 // todo Device
+
 // todo Dictation
+
 // todo DocumentPicker
+
 // todo DrawContext
+
 // todo FileManager
+
 // todo Font
+
 // todo Image
+
 // todo importModule
+
 // todo Keychain
+
 // todo LinearGradient
+
 // todo ListWidget
+
 // todo Location
+
 // todo Mail
+
 // todo Message
+
 // todo module
+
 // todo Notification
+
 // todo Pasteboard
+
 // todo Path
+
 // todo Photos
+
 // todo Point
+
 // todo QuickLook
+
 // todo Rect
+
 // todo RecurrenceRule
+
 // todo RelativeDateTimeFormatter
+
 // todo Reminder
+
 // todo Request
+
 // todo Safari
+
 // todo Script
+
 // todo SFSymbol
+
 // todo ShareSheet
+
 // todo Size
+
 // todo Speech
+
 // todo TextField
+
 // todo Timer
+
 // todo UITable
+
 // todo UITableCell
+
 // todo UITableRow
+
 // todo URLScheme
+
 // todo UUID
+
 // todo WebView
+
 // todo WidgetDate
+
 // todo WidgetImage
+
 // todo WidgetSpacer
-// todo WidgetStack
-// todo WidgetText
-// todo XMLParser
+
+declare class WidgetStack {
+	backgroundColor: Color;
+	backgroundImage: Image;
+	backgroundGradient: LinearGradient;
+	spacing: number;
+	size: Size;
+	cornerRadius: number;
+	borderWidth: number;
+	borderColor: Color;
+	url: string;
+
+	// todo ???
+	private constructor();
+
+	addText(text: string): WidgetText;
+	addDate(date: Date): WidgetDate;
+	addImage(image: Image): WidgetImage;
+	addSpacer(length: number): WidgetSpacer;
+	addStack(): WidgetStack;
+	setPadding(top: number, leading: number, bottom: number, trailing: number);
+	useDefaultPadding();
+	topAlignContent();
+	centerAlignContent();
+	bottomAlignContent();
+	layoutHorizontally();
+	layoutVertically();
+}
+
+declare class WidgetText {
+	text: string;
+	textColor: Color;
+	font: Font;
+	textOpacity: number;
+	lineLimit: number;
+	minimumScaleFactor: number;
+	shadowColor: Color;
+	shadowRadius: number;
+	shadowOffset: Point;
+	url: string;
+
+	// todo ???
+	private constructor();
+
+	leftAlignText();
+	centerAlignText();
+	rightAlignText();
+}
+
+// todo I set the event functions as optional because I'm guessing you can't
+// read out a function from them before you set one, should verify this is true
+declare class XMLParser {
+	didStartDocument?: () => void;
+	didEndDocument?: () => void;
+	didStartElement?: (
+		elementName: string,
+		attributes: { [k: string]: string }
+	) => void;
+	didEndElement?: () => void;
+	foundCharacters?: () => void;
+	parseErrorOccured?: () => void;
+	string: string;
+
+	constructor(string: string);
+
+	parse(): boolean;
+}
