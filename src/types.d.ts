@@ -30,7 +30,7 @@ declare class Alert {
 	 *
 	 * @param title Title of the action
 	 */
-	addAction(title: string);
+	addAction(title: string): void;
 
 	/**
 	 * Adds a destructive action to the alert
@@ -40,7 +40,7 @@ declare class Alert {
 	 *
 	 * @param title Title of the action
 	 */
-	addDestructiveAction(title: string);
+	addDestructiveAction(title: string): void;
 
 	/**
 	 * Adds a cancel action to the alert
@@ -55,7 +55,7 @@ declare class Alert {
 	 *
 	 * @param title Title of the action
 	 */
-	addCancelAction(title: string);
+	addCancelAction(title: string): void;
 
 	/**
 	 * Adds a text field prompting for user input
@@ -121,7 +121,7 @@ declare class Alert {
 	 * @returns Promise resolving to the chosen action index
 	 */
 	presentSheet(): Promise<number>;
-};
+}
 
 declare const args: Args;
 declare type Args = {
@@ -174,9 +174,9 @@ declare class Calendar {
 	private constructor();
 
 	supportsAvailability(availability: string): boolean;
-	save();
-	remove();
-};
+	save(): void;
+	remove(): void;
+}
 
 // todo CalendarEvent
 
@@ -323,13 +323,13 @@ declare class WidgetStack {
 	addImage(image: Image): WidgetImage;
 	addSpacer(length: number): WidgetSpacer;
 	addStack(): WidgetStack;
-	setPadding(top: number, leading: number, bottom: number, trailing: number);
-	useDefaultPadding();
-	topAlignContent();
-	centerAlignContent();
-	bottomAlignContent();
-	layoutHorizontally();
-	layoutVertically();
+	setPadding(top: number, leading: number, bottom: number, trailing: number): void;
+	useDefaultPadding(): void;
+	topAlignContent(): void;
+	centerAlignContent(): void;
+	bottomAlignContent(): void;
+	layoutHorizontally(): void;
+	layoutVertically(): void;
 }
 
 declare class WidgetText {
@@ -347,9 +347,9 @@ declare class WidgetText {
 	// todo ???
 	private constructor();
 
-	leftAlignText();
-	centerAlignText();
-	rightAlignText();
+	leftAlignText(): void;
+	centerAlignText(): void;
+	rightAlignText(): void;
 }
 
 // todo I set the event functions as optional because I'm guessing you can't
