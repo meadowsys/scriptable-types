@@ -190,7 +190,7 @@ declare class Calendar {
 	readonly allowsContentModifications: boolean;
 	color: Color;
 
-	// todo ??
+	// todo ???
 	private constructor();
 
 	supportsAvailability(availability: string): boolean;
@@ -237,7 +237,21 @@ declare class Color {
 
 // todo ContactsGroup
 
-// todo Data
+declare class Data {
+	static fromString(string: string): Data | null;
+	static fromFile(filepath: string): Data;
+	static fromBase64String(base64String: string): Data | null;
+	static fromJPEG(image: Image): Data;
+	static fromPNG(image: Image): Data;
+	static fromBytes(bytes: Array<number>): Data;
+
+	// todo ???
+	private constructor();
+
+	toRawString(): string;
+	toBase64String(): string;
+	getBytes(): Array<number>;
+}
 
 // todo DateFormatter
 
@@ -298,7 +312,15 @@ declare class Font {
 	constructor(name: string, size: number);
 }
 
-// todo Image
+declare class Image {
+	static fromFile(filePath: string): Image | null;
+	static fromData(data: Data): Image | null;
+
+	// todo ???
+	private constructor();
+
+	readonly size: Size;
+}
 
 // todo importModule
 
