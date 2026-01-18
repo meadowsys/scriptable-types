@@ -1,0 +1,8 @@
+{
+	"name": "scriptable-types",
+	"version": "0.1.0",
+	"types": "src/types.d.ts",
+	"devDependencies": {
+		"typescript": "^5.9.3"
+	}
+}
