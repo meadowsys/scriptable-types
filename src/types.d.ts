@@ -253,7 +253,50 @@ declare class Color {
 
 // todo FileManager
 
-// todo Font
+declare class Font {
+	static largeTitle(): Font;
+	static title1(): Font;
+	static title2(): Font;
+	static title3(): Font;
+	static headline(): Font;
+	static subheadline(): Font;
+	static body(): Font;
+	static callout(): Font;
+	static footnote(): Font;
+	static caption1(): Font;
+	static caption2(): Font;
+	static systemFont(size: number): Font;
+	static ultraLightSystemFont(size: number): Font;
+	static thinSystemFont(size: number): Font;
+	static lightSystemFont(size: number): Font;
+	static regularSystemFont(size: number): Font;
+	static mediumSystemFont(size: number): Font;
+	static semiboldSystemFont(size: number): Font;
+	static boldSystemFont(size: number): Font;
+	static heavySystemFont(size: number): Font;
+	static blackSystemFont(size: number): Font;
+	static italicSystemFont(size: number): Font;
+	static ultraLightMonospacedSystemFont(size: number): Font;
+	static thinMonospacedSystemFont(size: number): Font;
+	static lightMonospacedSystemFont(size: number): Font;
+	static regularMonospacedSystemFont(size: number): Font;
+	static mediumMonospacedSystemFont(size: number): Font;
+	static semiboldMonospacedSystemFont(size: number): Font;
+	static boldMonospacedSystemFont(size: number): Font;
+	static heavyMonospacedSystemFont(size: number): Font;
+	static blackMonospacedSystemFont(size: number): Font;
+	static ultraLightRoundedSystemFont(size: number): Font;
+	static thinRoundedSystemFont(size: number): Font;
+	static lightRoundedSystemFont(size: number): Font;
+	static regularRoundedSystemFont(size: number): Font;
+	static mediumRoundedSystemFont(size: number): Font;
+	static semiboldRoundedSystemFont(size: number): Font;
+	static boldRoundedSystemFont(size: number): Font;
+	static heavyRoundedSystemFont(size: number): Font;
+	static blackRoundedSystemFont(size: number): Font;
+
+	constructor(name: string, size: number);
+}
 
 // todo Image
 
@@ -312,7 +355,29 @@ declare class Size {
 
 // todo Speech
 
-// todo TextField
+declare class TextField {
+	text: string;
+	placeholder: string;
+	isSecure: boolean;
+	textColor: Color;
+	font: Font;
+
+	private constructor();
+
+	setDefaultKeyboard(): void;
+	setNumberPadKeyboard(): void;
+	setDecimalPadKeyboard(): void;
+	setNumbersAndPunctuationKeyboard(): void;
+	setPhonePadKeyboard(): void;
+	setWebSearchKeyboard(): void;
+	setEmailAddressKeyboard(): void;
+	setURLKeyboard(): void;
+	setTwitterKeyboard(): void;
+	leftAlignText(): void;
+	centerAlignText(): void;
+	rightAlignText(): void;
+
+}
 
 // todo Timer
 
@@ -330,9 +395,33 @@ declare class Size {
 
 // todo WidgetDate
 
-// todo WidgetImage
+declare class WidgetImage {
+	image: Image;
+	resizable: boolean;
+	imageSize: Size;
+	imageOpacity: number;
+	cornerRadius: number;
+	borderWidth: number;
+	borderColor: Color;
+	containerRelativeShape: boolean;
+	tintColor: Color;
+	url: string;
 
-// todo WidgetSpacer
+	private constructor();
+
+	leftAlignImage(): void;
+	centerAlignImage(): void;
+	rightAlignImage(): void;
+	applyFittingContentMode(): void;
+	applyFillingContentMode(): void;
+}
+
+declare class WidgetSpacer {
+	length: number | null;
+
+	// todo ???
+	private constructor();
+}
 
 declare class WidgetStack {
 	backgroundColor: Color;
