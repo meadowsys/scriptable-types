@@ -14,8 +14,7 @@ declare type Config = {
 		| "extraLarge"
 		| "accessoryRectangular"
 		| "accessoryInline"
-		| "accessoryCircular"
-		| null;
+		| "accessoryCircular";
 };
 
 declare const args: Args;
@@ -226,7 +225,7 @@ declare class Color {
 	readonly blue: number;
 	readonly alpha: number;
 
-	constructor(hex: string, alpha: number);
+	constructor(hex: string, alpha?: number);
 }
 
 // todo console
@@ -349,7 +348,7 @@ declare class ListWidget {
 	addText(text: string): WidgetText;
 	addDate(date: Date): WidgetDate;
 	addImage(image: Image): WidgetImage;
-	addSpacer(length: number): WidgetSpacer;
+	addSpacer(length?: number): WidgetSpacer;
 	addStack(): WidgetStack;
 	setPadding(top: number, leading: number, bottom: number, trailing: number): void;
 	useDefaultPadding(): void;
@@ -391,7 +390,7 @@ declare class Notification {
 	badge: number;
 	threadIdentifier: string;
 	userInfo: { [k: string]: unknown };
-	sound:
+	sound?:
 		| "default"
 		| "accept"
 		| "alert"
@@ -400,10 +399,9 @@ declare class Notification {
 		| "failure"
 		| "piano_error"
 		| "piano_success"
-		| "popup"
-		| null;
+		| "popup";
 	openURL: string;
-	readonly deliveryDate: Date | null;
+	readonly deliveryDate?: Date;
 	nextTriggerDate: Date;
 	scriptName: string;
 	actions: { [k: string]: string };
@@ -573,7 +571,7 @@ declare class WidgetImage {
 }
 
 declare class WidgetSpacer {
-	length: number | null;
+	length?: number;
 
 	// todo ???
 	private constructor();
@@ -596,7 +594,7 @@ declare class WidgetStack {
 	addText(text: string): WidgetText;
 	addDate(date: Date): WidgetDate;
 	addImage(image: Image): WidgetImage;
-	addSpacer(length: number): WidgetSpacer;
+	addSpacer(length?: number): WidgetSpacer;
 	addStack(): WidgetStack;
 	setPadding(top: number, leading: number, bottom: number, trailing: number): void;
 	useDefaultPadding(): void;
