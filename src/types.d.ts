@@ -1,13 +1,12 @@
-declare const config: Config;
-declare type Config = {
-	readonly runsInApp: boolean;
-	readonly runsInActionExtension: boolean;
-	readonly runsWithSiri: boolean;
-	readonly runsInWidget: boolean;
-	readonly runsInAccessoryWidget: boolean;
-	readonly runsInNotification: boolean;
-	readonly runsFromHomeScreen: boolean;
-	readonly widgetFamily:
+declare class config {
+	static readonly runsInApp: boolean;
+	static readonly runsInActionExtension: boolean;
+	static readonly runsWithSiri: boolean;
+	static readonly runsInWidget: boolean;
+	static readonly runsInAccessoryWidget: boolean;
+	static readonly runsInNotification: boolean;
+	static readonly runsFromHomeScreen: boolean;
+	static readonly widgetFamily:
 		| "small"
 		| "medium"
 		| "large"
@@ -15,35 +14,38 @@ declare type Config = {
 		| "accessoryRectangular"
 		| "accessoryInline"
 		| "accessoryCircular";
-};
 
-declare const args: Args;
-declare type Args = {
+	private constructor();
+}
+
+declare class args {
 	/**
 	 * @deprecated
 	 */
-	readonly length: number;
-
-	/**
-	 * @deprecated
-	 */
-	readonly all: Array<unknown>;
-
-	readonly plainTexts: Array<string>;
-	readonly urls: Array<string>;
-	readonly fileURLs: Array<string>;
-	readonly images: Array<string>;
-	readonly queryParameters: { [k: string]: string };
+	static readonly length: number;
 
 	/**
 	 * @deprecated
 	 */
-	readonly siriShortcutArguments: { [k: string]: string };
+	static readonly all: Array<unknown>;
 
-	readonly shortcutParameter: unknown;
-	readonly widgetParameter: unknown;
-	readonly notification: Notification;
-};
+	static readonly plainTexts: Array<string>;
+	static readonly urls: Array<string>;
+	static readonly fileURLs: Array<string>;
+	static readonly images: Array<string>;
+	static readonly queryParameters: { [k: string]: string };
+
+	/**
+	 * @deprecated
+	 */
+	static readonly siriShortcutArguments: { [k: string]: string };
+
+	static readonly shortcutParameter: unknown;
+	static readonly widgetParameter: unknown;
+	static readonly notification: Notification;
+
+	private constructor();
+}
 
 /**
  * Presents an alert
