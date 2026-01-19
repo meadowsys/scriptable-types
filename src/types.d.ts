@@ -1,11 +1,45 @@
 declare class config {
+	/**
+	 * Whether or not the script is running in the app
+	 */
 	static readonly runsInApp: boolean;
+
+	/**
+	 * Whether or not the script is running in the action extension
+	 */
 	static readonly runsInActionExtension: boolean;
+
+	/**
+	 * Whether or not the script is running in Siri
+	 */
 	static readonly runsWithSiri: boolean;
+
+	/**
+	 * Whether or not the script is running in either a home screen
+	 * or a lock screen widget
+	 */
 	static readonly runsInWidget: boolean;
+
+	/**
+	 * Whether or not the script is running in an accessory widget on
+	 * the lock screen (iOS 16 or later)
+	 */
 	static readonly runsInAccessoryWidget: boolean;
+
+	/**
+	 * Whether or not the script is running in notification
+	 */
 	static readonly runsInNotification: boolean;
+
+	/**
+	 * Whether or not the script was run from the home screen
+	 */
 	static readonly runsFromHomeScreen: boolean;
+
+	/**
+	 * The size of the widget that the script is running in
+	 * (`null` if not running in a widget)
+	 */
 	static readonly widgetFamily:
 		| "small"
 		| "medium"
