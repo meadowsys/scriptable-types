@@ -119,8 +119,7 @@ declare class Alert {
 	 * @param text Optional default value for the text field
 	 * @returns Text field added to the alert
 	 */
-	// todo those two params are documented as optional? what does this mean typewise? is null/undefined fine?
-	addTextField(placeholder: string, text: string): TextField;
+	addTextField(placeholder?: string, text?: string): TextField;
 
 	/**
 	 * Adds a secure text field prompting for user input
@@ -134,8 +133,7 @@ declare class Alert {
 	 * @param text Optional default value for the text field
 	 * @returns Text field added to the alert
 	 */
-	// todo same as above, types of params are optional?
-	addSecureTextField(placeholder: string, text: string): TextField;
+	addSecureTextField(placeholder?: string, text?: string): TextField;
 
 	/**
 	 * Retrieves value of a text field by index
@@ -444,7 +442,7 @@ declare class Point {
 declare class Request {
 	url: string;
 	method: string;
-	headers: { [k: string]: string };
+	headers?: { [k: string]: string };
 	body: unknown;
 	timeoutInterval: number;
 	onRedirect: (req: Request) => Request;
